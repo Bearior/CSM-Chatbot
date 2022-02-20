@@ -1,38 +1,69 @@
-from flask import Flask, request, abort
-import requests
-import json
+from flask import Flask,abort, request
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from dotenv import load_dotenv
+import os
+from linebot.exceptions import (
+    LineBotApiError, InvalidSignatureError
+)
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
+    SourceUser, PostbackEvent, StickerMessage, StickerSendMessage, 
+    LocationMessage, LocationSendMessage, ImageMessage, ImageSendMessage, AudioMessage, AudioSendMessage)
+
 app = Flask(__name__)
-@app.route('/', methods=['POST','GET'])
-def webhook():
-    if request.method == 'POST':
-        payload = request.json
-        Reply_token = payload['events'][0]['replyToken']
-        print(Reply_token)
-        message = payload['events'][0]['message']['text']
-        print(message)
-    if 'ดี' in message :
-        Reply_messasge = 'ดีมาก'
-        ReplyMessage(Reply_token,Reply_messasge,'l9HWHyXh9dVumo0cqyRcRr+YfBZnB7ENKUh7qiIpHz36SylXwq9k3udoshU6pzqRQOEoSw0p1iW53urA2lVVRk1Z0QMeSQ+z0kPnIIM4zdAOQ7MbW2AFP3P1qVB8bkCFaFz7wHIXj8nLeV73sR2PnAdB04t89/1O/w1cDnyilFU=') #ใส่ Channel access token
-        return request.json, 200
-    else:
+
+load_dotenv()
+
+channel_secret = os.getenv('LINE_CHANNEL_SECRET', None)
+channel_access_token = os.getenv('LINE_CHANNEL_ACCESS_TOKEN', None)
+line_bot_api = LineBotApi(channel_access_token)
+handler = WebhookHandler(channel_secret)
+
+@app.route("/callback", methods=['POST'])
+def callback():
+    # get X-Line-Signature header value
+    signature = request.headers['X-Line-Signature']
+
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except LineBotApiError as e:
+        print("Got exception from LINE Messaging API: %s\n" % e.message)
+        for m in e.error.details:
+            print("  %s: %s" % (m.property, m.message))
+        print("\n")
+    except InvalidSignatureError:
         abort(400)
-def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token):
-    LINE_API = 'https://api.line.me/v2/bot/message/reply'
-    Authorization = 'Bearer {}'.format(Line_Acees_Token)
-    print(Authorization)
-    headers = {
-    'Content-Type': 'application/json; charset=UTF-8',
-    'Authorization':Authorization
-    }
-    data = {
-    "replyToken":Reply_token,
-    "messages":[{
-    "type":"text",
-    "text":TextMessage
-    }]
-    }
-    data = json.dumps(data)
-    r = requests.post(LINE_API, headers=headers, data=data)
-    return 200
-if __name__ == '__main__':
-    app.run(debug=True)
+
+    return 'OK'
+@handler.add(MessageEvent, message=TextMessage)
+def handle_text_message(event):
+    text = event.message.text
+    if text == 'members':
+        if isinstance(event.source, SourceUser):
+            group_id = line_bot_api.get_group_member_ids
+            group_count = line_bot_api.get_group_members_count(group_id)
+            line_bot_api.reply_message(
+                event.reply_token, [
+                    TextSendMessage(text='number of people in this group :' + group_count),
+                ]
+            )
+        else:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="Please use this command in group chat"))
+    if text == 'voice':
+            AudioSendMessage(
+            original_content_url='file:///D:/Mhee/GC+/NSC/CSM-Chatbot/voice_test.mp3', 
+            duration=240000)
+    else: TextSendMessage(text='error')
+
+
+if __name__ == "__main__":
+    app.run()
