@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cataract-analyzer-rtdb",
+  "private_key_id": "5741a8632840562c691c2128028b9878223d62fb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDD0WeYFPgOeuh7\nlFoU7yeh+AGf9w+nmjNQcbYmeMJ9YBk4lW9F57CaVGWgag9WWRXK5NAIA6TzDO/9\nahJF8yo40rf5ZNehCMa5Du8FbwNf5bQr+mgpXd8wJPlBj3G1yvIci0mldJsMQVs0\nWeuwNpwbL1IYIfCqZ8iDaxfZOnsVXalek5/5DicClPZDNd+GKwmxlCgZHeR7mdSx\nXAP4GQIWnNd/3LytB0OBRvHrzwfgXELNZvgDP3BkQTjBxu39gPKrNkSzrUjlGfvm\nk2x73mMVU0qPmcT0hRQEkEjvzI6dUjlxiFIk9GSbs0vcwbo/9YSGO9cGNMsGN4Y+\n6qtHXdrHAgMBAAECggEAAQjIoCGFjpIF9gJ6bVThY+DK+rzT14H1gRhwqrMFl/hG\nJH80PMLKCIP8m28j+0PyMlr+DE90nhdfPHqZyRvNM8qieniWuPzdC9oxLK6sQ7k+\nDTi/4cQOAJOZa3K7WjH4Zb/d7jf3n7DIBLaa4O3mP4XYTFSq5ZjcaBv3NB2zy7uW\nDHnpeHnSfzC40uXvWdXhs1qM9xwUQ8cGD1WgUXQC/i0ROv611tNP3oBFbYNZ3pn8\nCDlBc4jcKynvC66rRear7UMSnfSiYthdXJFy0k0M1C6DnWxfWv6X8TiZrvEASYZh\nZKy8mUhRefyZtzBOf/Ocmj2n5jjePNk35yCSKV4QpQKBgQDszQc0Z/mRzH2tkmJy\n1Hi7xVhfQ6exsSV+KeApTMwFc8TIXCpXvFGcFFZK+zvM8yk+Bb/UblhYLTUh2Idv\n5NW9dZRJHm+urELgptd8TNBbiHoT8GjkQKMT0VD6OOmb+dUsrQRnxe/DNd0ZFbss\nDFK4qk7womZGYMxfo2RHyvZj/QKBgQDTsb89jWmmFn/LIOtl9i1ovdPEpdpANVl3\nLGJZzyuf7tj9tugh/I2y5zppObSYgw/K0csfi8xSQBek0I/DrvUKnMwaIRJ1A6e/\nOjRwjc8yZQe1IJ4fKvwN5TIRDmJY67cKQwBybh3UUqzhtWI9pg6aqo5CjSVRtHz1\nyiJ2RCfbEwKBgBeVZ9VJUaq6of2qaZGkJY4V3nJGa6ofyWsiQof6dQtJ91w5CaKJ\nR9tyjxGSqecEhKP/sJY4kyXdAsCnLv3u3XasAiOyG09bKqHzG9zuTYYANqBLvjaV\nVWiA3T6+ck2teRSk+p5XMUTQ1X9NEcIWTBrGI2yF0AfMVi5kOHWJ+jYFAoGAC6un\n7F/IbESfRPaKo7Nfq3+TlirCjnmidgR3Y5YdRJLpWYtk3sLKmQtQWA67WxEWpMrO\nFO4jFIG+C/MHifUyQySDyAj8uIC8FbnCvFXFD3UsaJrkvLkk7istiG0vlNFh5Onu\ns2BIurTYHRVf1iA6e+JdN2QKo6d8oBxFrBlzzQsCgYEAxsA1kBIoucNxyoB3xBzm\n0rjL1tNiwDqNV/SdhVA6BsGDPylTk76txay5JKp7YDCMji1kKklJiqE3W+6vwr8h\nWqfmfOeEF8mwtA6S+8CVboPAu5ZIaDgZq90fZxsD3RmwFGlPQYFEnKHWdFIr2NNg\nna2aWfocU2ROk+/lKQriT/w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-mllig@cataract-analyzer-rtdb.iam.gserviceaccount.com",
+  "client_id": "109846609887740204153",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-mllig%40cataract-analyzer-rtdb.iam.gserviceaccount.com"
+}
